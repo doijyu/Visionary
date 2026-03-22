@@ -397,9 +397,42 @@
       letter-spacing: 0.15em;
       color: var(--text-mid);
       border: 1px dashed var(--gray-lt);
+      /* videoを内包する場合は overflow: hidden でラウンドを維持 */
+      overflow: hidden;
     }
     .img-placeholder.small {
       aspect-ratio: 3 / 1;
+    }
+
+    /* ── レスポンシブ動画 ──
+       .img-placeholder の中に <video> を入れると自動でフィットする。
+       display:flex の子要素として stretch させるのがポイント。        */
+    .img-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* 黒帯あり・映像全体を表示したい場合 */
+      /* object-fit: cover;  黒帯なし・トリミングしてもよい場合はこちら */
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    /* .img-placeholder を使わず単独で貼る場合のラッパー */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: 2rem 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+    }
+    .video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     /* ================================================================
@@ -657,8 +690,7 @@
       <div class="content-section">
         <h2>共生とはなにか</h2>
         <p>ここに「共生」の定義と概念についてのテキストを入力します。経済・社会の文脈でどのような共生が可能なのか、現状の課題と照らし合わせて記述してください。</p>
-        <div class="img-placeholder"><video src="assets/chapter2/2-4-eng_20260307.mp4" controls></video></div>
-        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
+        <div class="video-wrap"><video src="assets/chapter2/2-4-eng_20260307.mp4" controls></video></div>
         <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
       </div>
       <div class="content-section">
