@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第二章　共生を可能とする経済社会 | 自由と公正のもと、一人ひとりがより幸福に生きようとする機会を創り続けられる世界</title>
+  <meta name="description" content="第二章　共生を可能とする経済社会についての考察と議論。" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ================================================================
+       RESET & BASE
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    /* ================================================================
+       VARIABLES
+    ================================================================ */
+    :root {
+      --navy:     #0d2340;
+      --navy-mid: #1a3a5c;
+      --blue:     #2d6a9f;
+      --sky:      #4a90c4;
+      --accent:   #c8a96e;
+      --light:    #f0f4f8;
+      --white:    #ffffff;
+      --gray:     #6b7280;
+      --gray-lt:  #e5e8ec;
+      --text:     #1a1a1a;
+      --text-mid: #4a5568;
+      --font-serif: 'Noto Serif JP', serif;
+      --font-sans:  'Noto Sans JP', sans-serif;
+      --font-en:    'EB Garamond', serif;
+      --shadow:     0 4px 20px rgba(13,35,64,0.10);
+      --shadow-lg:  0 12px 40px rgba(13,35,64,0.16);
+      --radius:     6px;
+      --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ================================================================
+       HEADER
+    ================================================================ */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(13,35,64,0.08);
+      padding: 0 2.5rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: headerSlideDown 0.6s var(--ease) both;
+    }
+    @keyframes headerSlideDown {
+      from { opacity: 0; transform: translateY(-100%); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .site-header.scrolled {
+      box-shadow: 0 2px 16px rgba(13,35,64,0.10);
+    }
+    .header-lang {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .header-lang a {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--text-mid);
+      padding: 0.1rem 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .header-lang a.active,
+    .header-lang a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    .header-lang .sep { color: var(--gray-lt); font-size: 0.8rem; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .header-nav   { display: flex; gap: 2rem; }
+    .header-nav a {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--text-mid);
+      transition: color 0.25s;
+    }
+    .header-nav a:hover { color: var(--navy); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--navy);
+      transition: all 0.3s var(--ease);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: 60px;
+      background: rgba(255,255,255,0.98);
+      z-index: 90;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      letter-spacing: 0.06em;
+    }
+
+    /* ================================================================
+       PAGE HERO (各コンテンツページのヒーロー)
+    ================================================================ */
+    .page-hero {
+      padding-top: 60px;
+      min-height: 52vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* 背景グラデーション */
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    /* 背景装飾円 */
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 1;
+      animation: ringPulse 10s ease-in-out infinite;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      width: 460px; height: 460px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.09);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 1;
+      animation: ringPulse 10s 1.5s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.5; }
+      50%      { transform: translate(-50%,-50%) scale(1.05); opacity: 1; }
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 3.5rem 2rem 3rem;
+      max-width: 800px;
+    }
+    .page-hero-en {
+      font-family: var(--font-en);
+      font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s var(--ease) both;
+    }
+    .page-hero-badge {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(200,169,110,0.4);
+      padding: 0.25rem 0.9rem;
+      border-radius: 3px;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.35s var(--ease) both;
+    }
+    .page-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s var(--ease) both;
+    }
+    .page-hero-divider {
+      width: 32px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.7s var(--ease) both;
+    }
+    /* ウェーブ下部 */
+    .page-hero-wave {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      line-height: 0;
+    }
+    .page-hero-wave svg { width: 100%; display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ================================================================
+       BREADCRUMB
+    ================================================================ */
+    .breadcrumb {
+      background: var(--light);
+      border-bottom: 1px solid var(--gray-lt);
+      padding: 0.7rem 2.5rem;
+    }
+    .breadcrumb-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a, .breadcrumb span {
+      font-size: 0.72rem;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+    }
+    .breadcrumb a { transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb .sep { color: var(--gray-lt); }
+    .breadcrumb .current { color: var(--navy); font-weight: 500; }
+
+    /* ================================================================
+       MAIN CONTENT AREA
+    ================================================================ */
+    .content-main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4.5rem 2.5rem 5rem;
+    }
+
+    /* リード文 */
+    .content-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-weight: 400;
+      line-height: 2.0;
+      color: var(--navy-mid);
+      border-left: 3px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 1.4rem;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s var(--ease) both;
+    }
+
+    /* セクション */
+    .content-section {
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+    .content-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .content-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--gray-lt);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .content-section h2::before {
+      content: '';
+      display: block;
+      width: 4px; height: 1.2em;
+      background: linear-gradient(to bottom, var(--navy), var(--sky));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .content-section p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 2.1;
+      margin-bottom: 1.1rem;
+    }
+    .content-section p:last-child { margin-bottom: 0; }
+
+    /* 本文内引用ブロック */
+    .blockquote {
+      background: var(--light);
+      border-left: 3px solid var(--sky);
+      padding: 1.2rem 1.6rem;
+      margin: 1.5rem 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .blockquote p {
+      font-family: var(--font-serif);
+      font-size: 0.92rem;
+      color: var(--navy-mid);
+      line-height: 2;
+      margin: 0;
+    }
+
+    /* インフォボックス */
+    .info-box {
+      background: rgba(45,106,159,0.05);
+      border: 1px solid rgba(45,106,159,0.18);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.8rem;
+      margin: 1.5rem 0;
+    }
+    .info-box h3 {
+      font-family: var(--font-serif);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .info-box p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    /* 画像プレースホルダー */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--light) 0%, #dde6ef 100%);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem 0;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--text-mid);
+      border: 1px dashed var(--gray-lt);
+      /* videoを内包する場合は overflow: hidden でラウンドを維持 */
+      overflow: hidden;
+    }
+    .img-placeholder.small {
+      aspect-ratio: 3 / 1;
+    }
+
+    /* ── レスポンシブ動画 ──
+       .img-placeholder の中に <video> を入れると自動でフィットする。
+       display:flex の子要素として stretch させるのがポイント。        */
+    .img-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* 黒帯あり・映像全体を表示したい場合 */
+      /* object-fit: cover;  黒帯なし・トリミングしてもよい場合はこちら */
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    /* .img-placeholder を使わず単独で貼る場合のラッパー */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: 2rem 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+    }
+    .video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ================================================================
+       PREV / NEXT NAVIGATION
+    ================================================================ */
+    .pn-nav {
+      border-top: 1px solid var(--gray-lt);
+      margin-top: 4rem;
+      padding-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .pn-nav.only-next {
+      grid-template-columns: 1fr;
+    }
+    .pn-nav.only-prev {
+      grid-template-columns: 1fr;
+    }
+    .pn-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid var(--gray-lt);
+      border-radius: var(--radius);
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .pn-item:hover {
+      border-color: rgba(45,106,159,0.35);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+    .pn-item.next { text-align: right; }
+    .pn-label {
+      font-family: var(--font-en);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .pn-title {
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.5;
+      transition: color 0.25s;
+    }
+    .pn-item:hover .pn-title { color: var(--blue); }
+    .pn-arrow {
+      font-size: 1.1rem;
+      color: var(--blue);
+      transition: transform 0.25s var(--ease);
+      display: block;
+    }
+    .pn-item.prev:hover .pn-arrow { transform: translateX(-4px); }
+    .pn-item.next:hover .pn-arrow { transform: translateX(4px); }
+
+    /* TOPに戻るリンク */
+    .back-to-index {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .back-to-index a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--text-mid);
+      border: 1px solid var(--gray-lt);
+      padding: 0.65rem 1.5rem;
+      border-radius: 3px;
+      transition: all 0.25s;
+    }
+    .back-to-index a:hover {
+      color: var(--navy);
+      border-color: var(--navy);
+      background: var(--light);
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    .site-footer {
+      background: #0a1b2e;
+      color: rgba(255,255,255,0.6);
+      padding: 3.5rem 2.5rem 2rem;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .footer-brand { flex: 1; min-width: 200px; }
+    .footer-site-title {
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+      max-width: 28ch;
+    }
+    .footer-tagline { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; }
+    .footer-nav-group { display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-nav-group h4 {
+      font-family: var(--font-en);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.25rem;
+    }
+    .footer-nav-group a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.25s;
+      line-height: 1.4;
+    }
+    .footer-nav-group a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+    .footer-langs { display: flex; gap: 1rem; }
+    .footer-langs a {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.25s;
+    }
+    .footer-langs a.active, .footer-langs a:hover { color: rgba(255,255,255,0.85); }
+
+    /* ================================================================
+       PAGE TRANSITION OVERLAY
+    ================================================================ */
+    .page-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 9999;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      pointer-events: none;
+    }
+    .page-overlay.out {
+      animation: overlayOut 0.55s cubic-bezier(0.76,0,0.24,1) forwards;
+    }
+    @keyframes overlayOut {
+      0%   { transform: scaleY(1); transform-origin: top; }
+      100% { transform: scaleY(0); transform-origin: top; }
+    }
+
+    /* ================================================================
+       RESPONSIVE
+    ================================================================ */
+    @media (max-width: 900px) {
+      .header-nav { display: none; }
+      .hamburger  { display: flex; }
+      .footer-top { flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .site-header   { padding: 0 1.25rem; }
+      .breadcrumb    { padding: 0.6rem 1.25rem; }
+      .content-main  { padding: 3rem 1.25rem 4rem; }
+      .pn-nav        { grid-template-columns: 1fr; }
+      .pn-item.next  { text-align: left; }
+      .site-footer   { padding: 2.5rem 1.25rem 1.5rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-overlay" id="pageOverlay"></div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-lang">
+      <a href="index.html" class="active">Ja</a>
+      <span class="sep">·</span>
+      <a href="index-en.html">En</a>
+    </div>
+    <div class="header-right">
+      <nav class="header-nav">
+        <a href="index.html#contents">コンテンツ</a>
+        <a href="index.html#about">サイトについて</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html#contents">コンテンツ</a>
+    <a href="index.html#about">サイトについて</a>
+    <a href="#">お問い合わせ</a>
+    <div style="display:flex;gap:1rem;margin-top:.5rem">
+      <a href="index.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em">Ja</a>
+      <a href="index-en.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em;color:#6b7280">En</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background:linear-gradient(135deg,#12324e 0%,#1e4d6b 60%,#3a7fa8 100%);"></div>
+    <div class="page-hero-inner">
+      <p class="page-hero-en">Chapter II</p>
+      <span class="page-hero-badge">第二章</span>
+      <h1 class="page-hero-title">第二章　共生を可能とする経済社会</h1>
+      <div class="page-hero-divider"></div>
+    </div>
+    <div class="page-hero-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" height="60">
+        <path d="M0,40 C240,65 480,15 720,40 C960,65 1200,20 1440,40 L1440,60 L0,60 Z" fill="#fafaf8"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="パンくず">
+    <div class="breadcrumb-inner">
+      <a href="index.html">トップ</a>
+      <span class="sep">›</span>
+      <span class="current">第二章　共生を可能とする経済社会</span>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content-main">
+
+    <!-- リード文 -->
+    <p class="content-lead">
+      ここにこの章のリード文（導入文）を入力します。<br>
+      章全体のテーマや問いを簡潔に示す1〜2文程度の文章をご記述ください。
+    </p>
+
+    <!-- 本文セクション -->
+
+      <div class="content-section">
+        <h2>共生とはなにか</h2>
+        <p>ここに「共生」の定義と概念についてのテキストを入力します。経済・社会の文脈でどのような共生が可能なのか、現状の課題と照らし合わせて記述してください。</p>
+        <div class="video-wrap"><video src="assets/chapter2/2-4-eng_20260307.mp4" controls></video></div>
+        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
+      </div>
+      <div class="content-section">
+        <h2>現代経済の構造的問題</h2>
+        <p>ここに現代経済の問題点についてのテキストを入力します。格差・環境・持続可能性など、共生を阻む要因を具体的に論述してください。</p>
+        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
+        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
+      </div>
+      <div class="content-section">
+        <h2>共生型経済モデルの提案</h2>
+        <p>ここに共生型経済モデルの提案テキストを入力します。どのような制度・仕組みが共生を可能にするのかを、論拠とともに記述してください。</p>
+        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
+        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
+      </div>
+      <div class="content-section">
+        <h2>実現に向けたステップ</h2>
+        <p>ここに実現ステップについてのテキストを入力します。提案した経済モデルをどのように社会に実装するか、段階的なロードマップを記述してください。</p>
+        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
+        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
+      </div>
+
+    <!-- 前後ナビ -->
+    <nav class="pn-nav" aria-label="前後のページ">
+
+        <a class="pn-item prev" href="contents_01.html">
+          <span class="pn-label">← Previous</span>
+          <span class="pn-title">第一章</span>
+        </a>
+
+        <a class="pn-item next" href="contents_03.html">
+          <span class="pn-label">Next →</span>
+          <span class="pn-title">第三章</span>
+        </a>
+    </nav>
+
+    <!-- トップに戻る -->
+    <div class="back-to-index">
+      <a href="index.html">
+        ← コンテンツ一覧に戻る
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <p class="footer-site-title">
+            自由と公正のもと、一人ひとりが<br>より幸福に生きようとする<br>機会を創り続けられる世界
+          </p>
+          <p class="footer-tagline">Freedom · Fairness · Happiness</p>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Contents</h4>
+          <a href="contents_pre.html">序章　継承者たちの航海日誌</a>
+          <a href="contents_01.html">第一章　総論</a>
+          <a href="contents_02.html">第二章　共生を可能とする経済社会</a>
+          <a href="contents_03.html">第三章　人の生の有り様とそれを支える産業</a>
+          <a href="contents_04.html">第四章　技術革新と社会の両立</a>
+        </div>
+        <div class="footer-nav-group">
+          <h4>&nbsp;</h4>
+          <a href="contents_05.html">第五章　大義ある未来のための教育</a>
+          <a href="contents_06.html">第六章　ビジネスモデル</a>
+          <a href="contents_07.html">終章　終わりなき航海</a>
+          <a href="contents_epi.html">エピローグ（E10メンバーの思い）</a>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Site</h4>
+          <a href="index.html#about">サイトについて</a>
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 All rights reserved.</p>
+        <div class="footer-langs">
+          <a href="index.html" class="active">Ja</a>
+          <a href="index-en.html">En</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    /* ── ヘッダー スクロール ── */
+    const hdr = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    /* ── ハンバーガーメニュー ── */
+    const burger  = document.getElementById('hamburger');
+    const mobMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => {
+      const open = burger.classList.toggle('open');
+      mobMenu.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* ── IntersectionObserver：スクロールイン ── */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.content-section').forEach(el => io.observe(el));
+
+    /* ── ページ遷移 ── */
+    const overlay = document.getElementById('pageOverlay');
+    window.addEventListener('load', () => { overlay.style.transform = 'scaleY(0)'; });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto')) return;
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        overlay.style.transform       = 'scaleY(1)';
+        overlay.style.transformOrigin = 'bottom';
+        overlay.style.transition      = 'transform 0.45s cubic-bezier(0.76,0,0.24,1)';
+        setTimeout(() => { window.location.href = href; }, 450);
+      });
+    });
+
+  </script>
+
+</body>
+</html>
