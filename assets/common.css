@@ -280,7 +280,7 @@
     /* リード文 */
     .content-lead {
       font-family: var(--font-serif);
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-size: clamp(1rem, 1.8vw, 1.8rem);
       font-weight: 400;
       line-height: 2.0;
       color: var(--navy-mid);
