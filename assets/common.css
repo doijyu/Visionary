@@ -633,8 +633,8 @@
     }
     .chapter-toc__list {
       margin: 0;
-      padding: 0 0 0 1.25rem;
-      list-style: decimal;
+      padding: 0;
+      list-style: none;
     }
     .chapter-toc__list li {
       margin-bottom: .55rem;
