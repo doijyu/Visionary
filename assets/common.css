@@ -655,3 +655,41 @@
     .content-lead[id] {
       scroll-margin-top: 80px;
     }
+
+    /* ── トップに戻るボタン ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #1e4d6b;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .3s, transform .3s, background .2s;
+      z-index: 900;
+      pointer-events: none;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: #3a7fa8;
+    }
+    .back-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+    .content-lead[id] {
+      scroll-margin-top: 80px;
+    }
