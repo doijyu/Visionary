@@ -612,3 +612,46 @@
       .pn-item.next  { text-align: left; }
       .site-footer   { padding: 2.5rem 1.25rem 1.5rem; }
     }
+
+    /* ── 章立て目次 ── */
+    .chapter-toc {
+      max-width: 760px;
+      margin: 2.5rem auto 3rem;
+      padding: 1.75rem 2rem 1.75rem 2rem;
+      background: #f4f7fa;
+      border-left: 4px solid #1e4d6b;
+      border-radius: 4px;
+    }
+    .chapter-toc__label {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #1e4d6b;
+      font-family: 'EB Garamond', serif;
+      margin: 0 0 .9rem;
+      font-weight: 600;
+    }
+    .chapter-toc__list {
+      margin: 0;
+      padding: 0 0 0 1.25rem;
+      list-style: decimal;
+    }
+    .chapter-toc__list li {
+      margin-bottom: .55rem;
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+    .chapter-toc__list li:last-child { margin-bottom: 0; }
+    .chapter-toc__list a {
+      color: #1e4d6b;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .chapter-toc__list a:hover {
+      color: #3a7fa8;
+      text-decoration: underline;
+    }
+    /* アンカーがヘッダーに隠れないようオフセット */
+    .content-lead[id] {
+      scroll-margin-top: 80px;
+    }
