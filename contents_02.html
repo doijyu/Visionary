@@ -50,7 +50,9 @@
     <div class="page-hero-inner">
       <p class="page-hero-en">Chapter II</p>
       <span class="page-hero-badge">第二章</span>
-      <h1 class="page-hero-title">第二章　共生を可能とする経済社会</h1>
+      <h1 class="page-hero-title">第二章　共生を可能とする経済社会
+      <div class="img-placeholder"><img src="assets/chapter2/2-jap_infographics_20260401.png"></div>
+      </h1>
       <div class="page-hero-divider"></div>
     </div>
     <div class="page-hero-wave">
@@ -59,15 +61,6 @@
       </svg>
     </div>
   </section>
-
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb" aria-label="パンくず">
-    <div class="breadcrumb-inner">
-      <a href="index.html">トップ</a>
-      <span class="sep">›</span>
-      <span class="current">第二章　共生を可能とする経済社会</span>
-    </div>
-  </nav>
 
   <!-- MAIN CONTENT -->
   <main class="content-main">
@@ -604,7 +597,23 @@
     </div>
   </footer>
 
+  <!-- トップに戻るボタン -->
+  <button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
   <script>
+
+    /* ── トップに戻るボタン ── */
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     /* ── ヘッダー スクロール ── */
     const hdr = document.getElementById('siteHeader');
@@ -636,7 +645,7 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.03, rootMargin: '0px 0px 20px 0px' });
     document.querySelectorAll('.content-section').forEach(el => io.observe(el));
 
     /* ── ページ遷移 ── */
