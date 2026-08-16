@@ -10,6 +10,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link href="assets/common.css" rel="stylesheet" />
+
+  <style>
+    .header-lang .gtranslate_wrapper {
+      display:flex;
+      align-items:center;
+    }
+    .header-lang select.gt_selector {
+      font-family:'EB Garamond','Noto Sans JP',sans-serif;
+      font-size:.88rem;
+      letter-spacing:.04em;
+      color:inherit;
+      background:transparent;
+      border:0;
+      outline:0;
+      cursor:pointer;
+      padding:.25rem 1.35rem .25rem .2rem;
+    }
+    @media (max-width:768px) {
+      .header-lang select.gt_selector {
+        font-size:.82rem;
+        max-width:135px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,10 +41,8 @@
 
   <!-- HEADER -->
   <header class="site-header" id="siteHeader">
-    <div class="header-lang">
-      <a href="index.html" class="active">Ja</a>
-      <span class="sep">·</span>
-      <a href="index_en.html">En</a>
+    <div class="header-lang notranslate">
+      <div class="gtranslate_wrapper"></div>
     </div>
     <div class="header-right">
       <nav class="header-nav">
@@ -38,10 +60,7 @@
     <a href="index.html#contents">コンテンツ</a>
     <a href="index.html#about">サイトについて</a>
     <a href="#">お問い合わせ</a>
-    <div style="display:flex;gap:1rem;margin-top:.5rem">
-      <a href="index.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em">Ja</a>
-      <a href="index_en.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em;color:#6b7280">En</a>
-    </div>
+
   </nav>
 
   <!-- PAGE HERO -->
@@ -90,7 +109,7 @@
         特に、他者との対話や協働を通じて問題解決を図る姿勢や、自らの学習を振り返る内省のプロセスが重要視されています</p>
 
         <div class="img-placeholder">
-          <img src="./assets/chapter5/5-1.png" alt="education">
+          <img src="./assets/chapter5/5-1.png" data-ja="./assets/chapter5/5-1.png" data-en="./assets/chapter5/5-1_en.png" alt="education">
         </div>
       </div>
       <div class="content-section">
@@ -102,7 +121,7 @@
 社会人教育：人的資本のメンテナンス。
 リタイア期：「知の循環」</p>
         <div class="img-placeholder">
-          <img src="./assets/chapter5/5-2.png" alt="human capital">
+          <img src="./assets/chapter5/5-2.png" data-ja="./assets/chapter5/5-2.png" data-en="./assets/chapter5/5-2_en.png" alt="human capital">
         </div>
       </div>
 
@@ -237,6 +256,60 @@
       });
     });
 
+  </script>
+
+
+  <!-- GTranslate Free -->
+  <script>
+    window.gtranslateSettings = {
+      "default_language": "ja",
+      "native_language_names": true,
+      "detect_browser_language": false,
+      "languages": ["ja", "en"],
+      "wrapper_selector": ".gtranslate_wrapper"
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+
+  <!-- 言語選択に合わせて図版も日英で切り替える -->
+  <script>
+    (function () {
+      function switchChapterImages(lang) {
+        document.querySelectorAll('img[data-ja][data-en]').forEach(function (img) {
+          img.src = (lang === 'en') ? img.dataset.en : img.dataset.ja;
+        });
+      }
+
+      // GTranslateのselectorは外部JSが後から生成するため、changeをdocumentで監視
+      document.addEventListener('change', function (event) {
+        const selector = event.target;
+        if (!selector || !selector.matches ||
+            !selector.matches('.gtranslate_wrapper select.gt_selector')) return;
+
+        if (selector.value === 'en') {
+          switchChapterImages('en');
+        } else if (selector.value === 'ja') {
+          switchChapterImages('ja');
+        }
+      });
+
+      // 翻訳状態を維持した再読込にも対応。
+      // GTranslateのselector生成後、その現在値に画像を合わせる。
+      function syncImagesWithSelector(attempt) {
+        const selector = document.querySelector('.gtranslate_wrapper select.gt_selector');
+        if (selector) {
+          switchChapterImages(selector.value === 'en' ? 'en' : 'ja');
+          return;
+        }
+        if (attempt < 50) {
+          setTimeout(function () { syncImagesWithSelector(attempt + 1); }, 100);
+        }
+      }
+
+      window.addEventListener('load', function () {
+        syncImagesWithSelector(0);
+      });
+    })();
   </script>
 
 </body>
