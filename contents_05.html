@@ -281,14 +281,15 @@
       }
 
       // GTranslateのselectorは外部JSが後から生成するため、changeをdocumentで監視
+      // value は 'ja|ja' / 'ja|en' の形式で返る
       document.addEventListener('change', function (event) {
         const selector = event.target;
         if (!selector || !selector.matches ||
             !selector.matches('.gtranslate_wrapper select.gt_selector')) return;
 
-        if (selector.value === 'en') {
+        if (selector.value === 'ja|en') {
           switchChapterImages('en');
-        } else if (selector.value === 'ja') {
+        } else if (selector.value === 'ja|ja') {
           switchChapterImages('ja');
         }
       });
@@ -298,7 +299,7 @@
       function syncImagesWithSelector(attempt) {
         const selector = document.querySelector('.gtranslate_wrapper select.gt_selector');
         if (selector) {
-          switchChapterImages(selector.value === 'en' ? 'en' : 'ja');
+          switchChapterImages(selector.value === 'ja|en' ? 'en' : 'ja');
           return;
         }
         if (attempt < 50) {
