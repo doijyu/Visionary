@@ -10,6 +10,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link href="assets/common.css" rel="stylesheet" />
+
+  <style>
+    /* GTranslate language selector */
+    .header-lang .gtranslate_wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .header-lang select.gt_selector {
+      font-family: 'EB Garamond', 'Noto Sans JP', sans-serif;
+      font-size: .88rem;
+      letter-spacing: .04em;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      padding: .25rem 1.35rem .25rem .2rem;
+    }
+    @media (max-width: 768px) {
+      .header-lang select.gt_selector {
+        font-size: .82rem;
+        max-width: 135px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,10 +42,8 @@
 
   <!-- HEADER -->
   <header class="site-header" id="siteHeader">
-    <div class="header-lang">
-      <a href="index.html" class="active">Ja</a>
-      <span class="sep">·</span>
-      <a href="index_en.html">En</a>
+    <div class="header-lang notranslate">
+      <div class="gtranslate_wrapper"></div>
     </div>
     <div class="header-right">
       <nav class="header-nav">
@@ -38,10 +61,7 @@
     <a href="index.html#contents">コンテンツ</a>
     <a href="index.html#about">サイトについて</a>
     <a href="#">お問い合わせ</a>
-    <div style="display:flex;gap:1rem;margin-top:.5rem">
-      <a href="index.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em">Ja</a>
-      <a href="index_en.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em;color:#6b7280">En</a>
-    </div>
+
   </nav>
 
   <!-- PAGE HERO -->
@@ -239,6 +259,39 @@
       });
     });
 
+  </script>
+
+
+  <!-- GTranslate Free: Japanese / English -->
+  <script>
+    window.gtranslateSettings = {
+      "default_language": "ja",
+      "native_language_names": true,
+      "detect_browser_language": false,
+      "languages": ["ja", "en"],
+      "wrapper_selector": ".gtranslate_wrapper"
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+
+  <!--
+    日本語は翻訳で戻さず、ページ再読込で原文を再描画する。
+    change を capture フェーズで監視し、GTranslate側の処理より先に検知する。
+  -->
+  <script>
+    document.addEventListener('change', function (event) {
+      const selector = event.target;
+
+      if (
+        selector &&
+        selector.matches &&
+        selector.matches('.gtranslate_wrapper select.gt_selector') &&
+        selector.value === 'ja'
+      ) {
+        event.stopImmediatePropagation();
+        window.location.reload();
+      }
+    }, true);
   </script>
 
 </body>
