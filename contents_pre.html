@@ -3,13 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>序章　継承者たちの航海日誌～「大義」を巡る52人の挑戦 | 自由と公正のもと、一人ひとりがより幸福に生きようとする機会を創り続けられる世界</title>
-  <meta name="description" content="序章　継承者たちの航海日誌～「大義」を巡る52人の挑戦についての考察と議論。" />
+  <title>序章　継承者たちの航海日誌〜「大義」を巡る52人の挑戦 | 自由と公正のもと、一人ひとりがより幸福に生きようとする機会を創り続けられる世界</title>
+  <meta name="description" content="序章　継承者たちの航海日誌〜「大義」を巡る52人の挑戦。" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link href="assets/common.css" rel="stylesheet" />
+
+  <style>
+    /* GTranslate language selector */
+    .header-lang .gtranslate_wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .header-lang select.gt_selector {
+      font-family: 'EB Garamond', 'Noto Sans JP', sans-serif;
+      font-size: .88rem;
+      letter-spacing: .04em;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      padding: .25rem 1.35rem .25rem .2rem;
+    }
+    @media (max-width: 768px) {
+      .header-lang select.gt_selector {
+        font-size: .82rem;
+        max-width: 135px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,10 +42,8 @@
 
   <!-- HEADER -->
   <header class="site-header" id="siteHeader">
-    <div class="header-lang">
-      <a href="index.html" class="active">Ja</a>
-      <span class="sep">·</span>
-      <a href="index_en.html">En</a>
+    <div class="header-lang notranslate">
+      <div class="gtranslate_wrapper"></div>
     </div>
     <div class="header-right">
       <nav class="header-nav">
@@ -38,15 +61,11 @@
     <a href="index.html#contents">コンテンツ</a>
     <a href="index.html#about">サイトについて</a>
     <a href="#">お問い合わせ</a>
-    <div style="display:flex;gap:1rem;margin-top:.5rem">
-      <a href="index.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em">Ja</a>
-      <a href="index_en.html" style="font-family:'EB Garamond',serif;font-size:.9rem;letter-spacing:.1em;color:#6b7280">En</a>
-    </div>
   </nav>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="page-hero-bg" style="background:linear-gradient(135deg,#0d2340 0%,#1a3a5c 55%,#2d6a9f 100%);"></div>
+    <div class="page-hero-bg" style="background:linear-gradient(135deg,#162840 0%,#234060 60%,#3572a0 100%);"></div>
     <div class="page-hero-inner">
       <p class="page-hero-en">Prologue</p>
       <span class="page-hero-badge">序章</span>
@@ -65,41 +84,65 @@
 
     <!-- リード文 -->
     <p class="content-lead">
-      ここにこの章のリード文（導入文）を入力します。<br>
-      章全体のテーマや問いを簡潔に示す1〜2文程度の文章をご記述ください。
+      あなたにとって、「自由」とは何を意味するだろうか?<br>
+      また、「公正」とは何を想起させるだろうか?<br>
+      そして、そうした「自由」や「公正」が息づいた未来において、「より幸せ = “Be Happier” でありたい」という世界の人々の願いは、果たして実現しているであろうか?
     </p>
+
+    <!-- 章立て目次 -->
+    <nav class="chapter-toc" aria-label="章の目次">
+      <p class="chapter-toc__label">この章の内容</p>
+      <ol class="chapter-toc__list">
+        <li><a href="#section-pre-1">「2050年の大義ある未来」への航海</a></li>
+        <li><a href="#section-pre-2">E10の学びと挑戦</a></li>
+        <li><a href="#section-pre-3">E10 Compassとプロジェクトの進め方</a></li>
+        <li><a href="#section-pre-4">52人をつないだカルチャーとツール</a></li>
+        <li><a href="#section-pre-5">AI元年のVisionary</a></li>
+      </ol>
+    </nav>
 
     <!-- 本文セクション -->
 
-      <div class="content-section">
-        <h2>はじめに</h2>
-        <p>ここに序章「はじめに」のテキストを入力します。この章の導入として、プロジェクトの背景・動機・目的などを読者に伝える内容をご記述ください。段落を増やす場合は &lt;p&gt; タグを追加してください。</p>
-        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
-        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
-      </div>
-      <div class="content-section">
-        <h2>52人の挑戦とは</h2>
-        <p>ここに「52人の挑戦」についての説明テキストを入力します。どのようなメンバーが、どのような問いに向き合ったのかを具体的に記述することで、読者の理解が深まります。</p>
-        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
-        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
-      </div>
-      <div class="content-section">
-        <h2>「大義」という問い</h2>
-        <p>ここに「大義」についての考察テキストを入力します。チームが共有した問いの意味や、議論の経緯について記述してください。</p>
-        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
-        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
-      </div>
-      <div class="content-section">
-        <h2>航海のはじまり</h2>
-        <p>ここに航海の出発点についてのテキストを入力します。プロジェクトがどのように動き出したか、メンバー間でどのような合意が形成されたかなどを記述してください。</p>
-        <div class="img-placeholder">Image Placeholder — 画像をここに配置してください</div>
-        <p>ここに続く本文テキストを入力してください。段落を追加する場合は &lt;p&gt; タグを複製してください。</p>
-      </div>
+    <div class="content-section" id="section-pre-1">
+      <h2>「2050年の大義ある未来」への航海</h2>
+      <p>我々はこれから語る「2050年の大義ある未来」という、こうした朧げで正解の無い問いに対して、これまでのキャリアで培ってきたそれぞれの多様な経験や価値観、視点を通じて、真剣に胸を突き合わせ議論する極めて幸運な機会を「享受する者」である。</p>
+      <p>そして、我々は、二度にわたる世界的な大戦からの復興や成⻑を支えた偉大な先達からタスキを受け継いだ、2026年現在における社会や経済を「継承する者」である。それと同時に、我々は、これらの機会で得た思いと自覚に基づき、次世代にそれを確実に受け渡していく大きな使命と責任を負っている。</p>
+      <p>はじめに、本編に入る前に、我々というグループが、このプロジェクトに投じた 2年間にわたる活動の軌跡と、そこで生じた思いについて述べておきたい。</p>
+      <p>2024年 4月、慶應ビジネススクール(KBS)の Executive MBA (EMBA)プログラム 10 期生“E10”として集まった我々52人は、2年間にわたるプログラムのメイン・プロジェクトとなる「Visionary」に取り組み始めた。伴走いただく岡田教授(KBS)・住田名誉教授(筑波大学)より初日にレクチャーを受けた後、残り 2年間は学生たち自身へ運営が委ねられることとなった。慶應義塾の「半学半教」の精神に則り、複数のグループワーク、個人でのリサーチ・発表に加え、教員を含めた全体での議論というサイクルを幾度も重ねてきた。また、EMBA プログラムにおける他の授業からの学びや気付きを還元しながら、この途方もない最終成果物に向けてどのように歩みを進めていくのか、模索し、苦悩し続けてきた。</p>
+      <p>「2050年の大義ある未来」というテーマに対して、志を共にして KBS に集ったビジネススクールの学生とはいえ、それぞれの産業・職種・職階・動機...といったバックグラウンドの異なるメンバーが、どうすれば一体となり、そこに向かって走ることができるのか。それぞれが普段従事するビジネスとは異なり、縦の指示関係も、横の役割分担も存在しない状況から、複数のフェーズに区切り、それぞれの役割をフレキシブルに可変させながら、試行錯誤、議論の発散・収束、抽象と具体を何度も行き来しながらプロジェクトを完成させる。不確実性に打ち勝つ能力、ネガティブケイパビリティを獲得するプロセスも、また我々の学びの一部となった。</p>
+    </div>
+    <div class="content-section" id="section-pre-2">
+      <h2>E10の学びと挑戦</h2>
+      <p>では、そもそも、「社会人が週末に通う MBA プログラム」と聞いて、あなたはどのような授業風景を思い浮かべるだろうか。教員からビジネスに必要な理論や知識が座学により教えられる、受動的な授業のイメージを持つ人もいるのではなかろうか。</p>
+      <p>KBS の EMBA プログラムは、それとは全く異なる。どんな授業であっても教員と学生の間や、学生同士で侃侃諤諤の議論が発生する。世界中の各界で活躍する経営者や第一人者を招くセッションも多い中、それぞれが持つ確固たるビジネスの実践知をベースに、容赦なく忌憚のない考えをぶつけ合う。そこには我々ならではの「一座建立」の理念が存在する。また、校舎・教室に留まることなく、日本国内・国外に飛び出し、フィールドワークを行う授業も多い。現場にて触れ、話し、聞き、思考し、まとめた仮説を議論し、検証する。2年間のプログラムを通して、世界中が自らの学びの場となり、我々自身の知的空間が拡張され、複眼的かつ高解像度で、ビジネスの本質・深層まで見渡す力が備わる。</p>
+      <p>さらには、我々E10 の授業外の活動においても、学生同士の自主的な活動として、多くの企業や関係者を訪問してきた。52人それぞれの所属先である様々な企業はもちろんのこと、それぞれの繋がりを最大限に活用した広範でユニークなネットワークは、ビジネスのみならず、スポーツや教育、といった多種多様な領域で活躍される方々と意見交換を実施することを可能とした。</p>
+      <p>今まで複線的に走っていた多角的かつ実践的な活動で得られた一つひとつの学びは、「大義ある未来」という大海原につながる、ひとつの大河になっていく。この「Visionary」こそが、2年間の我々の活動の集大成である。</p>
+      <p>これから、「2050年の大義ある未来」を論じていく中、その前提として、我々52人がどのような形で 2年間の学びをまとめあげ、形としたのか、そのポイントについて記しておきたい。</p>
+    </div>
+    <div class="content-section" id="section-pre-3">
+      <h2>E10 Compassとプロジェクトの進め方</h2>
+      <p>最終的に、我々は自分達を架空の企業体 “E10 Company” に喩えることとした。「2050年の大義ある未来」を、一般的な企業も提起するミッションやパーパスと同じように最上位のレゾン・デートル=存在意義として位置付ける。そこから導き出される行動原理やマインドセットをそれぞれ“Principle”、“Ways”として定義し、「E10 Compass(Visionary を検討する上での指針)」として掲げることとした。</p>
+      <p>また、我々は、世界を構成する諸要素毎に分かれたグループ単位で活動を開始した。</p>
+      <p>Group 1:食料・エネルギー・環境 Group 5:社会・文化・政治Group 2:経済・金融・資本主義 Group 6:サービス・流通Group 3:製造・工業・ものづくり Group 7:教育(議論の途中で追加)Group 4:保険・医療・ヘルスケア</p>
+      <p>それぞれ「看過できない重要な未来トレンド」「その上で、2050年に何が、誰が、どのような状況であることが誰にとって望ましいか」といった点を議論した後、全体でのすり合わせを行った。プロジェクトが進むにつれ、各グループ間における活動や成果の繋がりが見えてきたところで、目線を変え、より実践的なアクションを考えるため、グループ横断でのチームを再組成し、大義ある未来を実現するための様々なビジネスモデルについて検討を実施した。よって、この後に展開される各章の構成は、必ずしも上記のグループと一致していない。</p>
+      <p>これら一連の手法により、Mission/Vision/Value を策定し、組織を構成しながら時には横断プロジェクトチームを作り、大きな目標を実体的な計画に落とし込んでいく。まさしくそれは、企業経営の現場で実施されることそのものであり、出自は違うにせよ「ビジネス」を軸に集まった 52人が一体となる方法としては最適解の一つではないかと考える。</p>
+      <p>検討の当初、雲を掴むような気持ちでスタートした中で、「誰にとっての未来を語るのか(For whom)」「どのようにその未来に近づいているかを測定するのか(How)」といった大上段の悩みは、実務的なビジネスモデルを、それも市場戦略、非市場戦略という軸まで落とし込んで考えることで自然に肚落ちしていった。福澤諭吉が、幕末から明治まで世界が急速に変化する中、「実学」を慶應義塾で説いた意味を、我々は無意識にトレースしてきたのかもしれない。2年間のプロセスにおける“ビジネスモデルへの昇華というこだわり”こそが、我々のグループダイナミクスがもたらした、E10 らしさの一つであろう。</p>
+    </div>
+    <div class="content-section" id="section-pre-4">
+      <h2>52人をつないだカルチャーとツール</h2>
+      <p>我々の活動を支えてきた、現代の企業活動では欠かせない要素であるデジタルコミュニケーションツールについても、述べておきたい。様々な場で広く使われている Slack を自主的に導入することで、「内部のスピード・透明性・協働」の促進を念頭に、オンラインでの繋がりを形成した。大教室の中で 52人全員がそれぞれの思いを曝け出すことは時間的・心理的な制約があったものの、このツールが集合知・組織知を最大化させるために大きな役割を果たした。加えて、課題やスケジュールに関する点においても、日々の雑談も含め授業外でも頻繁にやり取りを重ねることで、“Inclusiveness”に関しては、他のどんなコミュニティにも負けない濃密な絆ができた。</p>
+      <p>これらは、いずれも誰か特定の人間がリーダーとして指示し、引っ張った結果ではない。52人それぞれが考え抜き、試行錯誤したプロセスが生んだ結果である。異なる考えをぶつけ、共感し、成⻑する。すなわち“Empathy”と“Growth Mindset”こそが、我々E10 に流れるカルチャーの土壌となった。</p>
+      <p>これらを E10 Compass に集約し、この 2年間で終えることなく、卒業後も文字通りCompass(指針)として掲げ続けることを相互にコミットした。こうした中⻑期の時間軸における関係性こそが、我々が KBS に集った意味と価値そのものであると強く信じている。</p>
+    </div>
+    <div class="content-section" id="section-pre-5">
+      <h2>AI元年のVisionary</h2>
+      <p>また、在学中の 2年間のプロジェクトを進める上では、上述のデジタルコミュニケーションツールに加えて、重要な武器になった生成 AI についても少し述べておきたい。一般企業における利用方針と同様に、まずは積極的にその便益を最大化することが我々の基本的なスタンスとなった。最終的に紡ぎ出す成果物そのものに我々自身が全責任を負い、我々自身の言葉で大義ある未来を語る必要がある点はこれまでと変わらない。但し、そこに至る過程におけるリサーチや思考の整理において、ここまでの効率性を発揮できる時代はこれまでになかったといえるだろう。こうした変革期において、ChatGPT や Gemini といった AI ツールは非常に重要な武器となり、まさしく我々の Agent=相棒として活躍することになった。</p>
+      <p>EMBA が始まって 10年、この Visionary というプロジェクトも 10 回目となる。今回はこの連綿と続くプロジェクトにおける AI 元年にあたるのではないかと思う。過去にない力を備えるからこそ、これまでにない意義や価値を加えなければならないという責任を感じている。そして、AI が生み出す言葉に決して負けることなく、我々52人が 2年間を通して学んだこと、吸収したことを、熱意をもって一人称で表現していきたい。</p>
+      <p>それでは、次に続く「大義ある未来」に向けた扉を開こう。</p>
+    </div>
 
     <!-- 前後ナビ -->
     <nav class="pn-nav only-next" aria-label="前後のページ">
-
-
         <a class="pn-item next" href="contents_01.html">
           <span class="pn-label">Next →</span>
           <span class="pn-title">第一章　総論</span>
@@ -223,6 +266,38 @@
       });
     });
 
+  </script>
+
+  <!-- GTranslate Free: Japanese / English -->
+  <script>
+    window.gtranslateSettings = {
+      "default_language": "ja",
+      "native_language_names": true,
+      "detect_browser_language": false,
+      "languages": ["ja", "en"],
+      "wrapper_selector": ".gtranslate_wrapper"
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+
+  <!--
+    日本語は翻訳で戻さず、ページ再読込で原文を再描画する。
+    change を capture フェーズで監視し、GTranslate側の処理より先に検知する。
+  -->
+  <script>
+    document.addEventListener('change', function (event) {
+      const selector = event.target;
+
+      if (
+        selector &&
+        selector.matches &&
+        selector.matches('.gtranslate_wrapper select.gt_selector') &&
+        selector.value === 'ja'
+      ) {
+        event.stopImmediatePropagation();
+        window.location.reload();
+      }
+    }, true);
   </script>
 
 </body>
